@@ -1,0 +1,319 @@
+// // Fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+// // Variables
+// $primary: #19c0a7;
+
+// // Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+// // Gallery Variables - Customize these!
+// $gallery-img-height: 250px;
+// $gallery-img-height-md: 200px;
+// $gallery-img-height-sm: 150px;
+// $gallery-img-aspect-ratio: 1/1; // 16:9 ratio (change to 1/1 for square)
+// $gallery-gap: 20px;
+// $gallery-hover-opacity: 0.85;
+// $gallery-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+// // Gallery Styles
+// .gallery-section {
+//     padding: 4rem 0;
+    
+//     .gallery-container {
+//         display: grid;
+//         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+//         gap: $gallery-gap;
+//         padding: 0 15px;
+
+//         .gallery-item {
+//             position: relative;
+//             overflow: hidden;
+//             border-radius: 8px;
+//             box-shadow: $gallery-card-shadow;
+//             transition: all 0.3s ease;
+            
+//             &:hover {
+//                 transform: translateY(-5px);
+//                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+                
+//                 .gallery-img {
+//                     opacity: $gallery-hover-opacity;
+//                     transform: scale(1.03);
+//                 }
+//             }
+            
+//             .gallery-img-container {
+//                 position: relative;
+//                 width: 100%;
+//                 padding-top: calc(100% / $gallery-img-aspect-ratio);
+//                 overflow: hidden;
+                
+//                 .gallery-img {
+//                     position: absolute;
+//                     top: 0;
+//                     left: 0;
+//                     width: 100%;
+//                     height: 100%;
+//                     object-fit: cover;
+//                     transition: all 0.4s ease;
+//                 }
+//             }
+            
+//             .gallery-caption {
+//                 padding: 15px;
+//                 background: white;
+//                 text-align: center;
+//             }
+//         }
+//     }
+
+//     // Responsive Adjustments
+//     @media (max-width: 992px) {
+//         .gallery-container {
+//             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            
+//             .gallery-img-container {
+//                 padding-top: calc(100% / (#{$gallery-img-aspect-ratio} * 0.9));
+//             }
+//         }
+//     }
+
+//     @media (max-width: 768px) {
+//         .gallery-container {
+//             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            
+//             .gallery-img-container {
+//                 padding-top: calc(100% / (#{$gallery-img-aspect-ratio} * 0.8));
+//             }
+//         }
+//     }
+// }
+
+// Color Variables
+$soraza-green: #2c786c;
+$soraza-light: #f8f9fa;
+$soraza-dark: #1a3d38;
+
+// Background Styles
+body {
+  background-color: #f5f5f5;
+}
+
+// Gallery Section
+.gallery-section {
+  background: linear-gradient(135deg, $soraza-light 0%, #ffffff 100%);
+  padding: 4rem 0;
+  
+  .section-title {
+    color: $soraza-dark;
+    position: relative;
+    padding-bottom: 15px;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: $soraza-green;
+    }
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        
+        .gallery-img {
+          transform: scale(1.05);
+        }
+      }
+
+      .gallery-img-container {
+        height: 220px;
+        overflow: hidden;
+        
+        .gallery-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+      }
+
+      .gallery-caption {
+        padding: 20px;
+        text-align: center;
+        background: white;
+        
+        h3 {
+          color: $soraza-dark;
+          font-size: 1.2rem;
+          margin-bottom: 5px;
+        }
+        
+        .location {
+          color: $soraza-green;
+          font-size: 0.9rem;
+          
+          i {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .view-more-btn {
+    margin-top: 50px;
+    text-align: center;
+    
+    .btn-view {
+      background: $soraza-green;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      border: 2px solid $soraza-green;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: transparent;
+        color: $soraza-green;
+      }
+    }
+  }
+}
+
+.main-content {
+background: white;
+box-shadow: 0 0 30px rgba(0,0,0,0.05);
+min-height: 100vh;
+}
+
+/* Video Hero Section - Fully Responsive */
+.video-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #000; /* Fallback color */
+  
+  /* Aspect ratio - 16:9 is standard but adjust as needed */
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  
+  /* For taller screens (mobile) */
+  @media (min-aspect-ratio: 16/9) {
+      padding-bottom: 100vh; /* Full height */
+  }
+}
+
+.video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.responsive-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  
+  /* Maintain aspect ratio while filling container */
+  object-fit: cover;
+  
+  /* For super wide screens */
+  @media (min-aspect-ratio: 16/9) {
+      width: 100%;
+      height: auto;
+  }
+  
+  /* For tall screens (mobile) */
+  @media (max-aspect-ratio: 16/9) {
+      width: auto;
+      height: 100%;
+  }
+}
+
+.video-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(44, 120, 108, 0.4); /* Soraza green with transparency */
+  color: white;
+  z-index: 2;
+  
+  .container {
+      padding: 0 20px;
+  }
+}
+
+.video-title {
+  font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  margin-bottom: 1rem;
+}
+
+.video-subtitle {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .video-hero {
+      padding-bottom: 100vh; /* Full height on mobile */
+  }
+  
+  .responsive-video {
+      /* Different scaling for mobile */
+      width: 100%;
+      height: auto;
+  }
+  
+  .btn-lg {
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+  }
+}
