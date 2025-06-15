@@ -35,7 +35,7 @@
         <!-- Video Overlay Content -->
         <div class="video-content">
             <div class="container">
-                <h1 class="video-title">Waste Less, Live More</h1>
+                <h1 class="video-title">Waste Less, Live More....designed by shakiv-ali</h1>
                 <p class="video-subtitle">The Eco Way</p>
                 <a href="{{ route('services') }}" class="btn btn-primary btn-lg mt-3">Our Services</a>
             </div>
