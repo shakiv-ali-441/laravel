@@ -24,10 +24,6 @@ jobs:
     - name: Run Laravel Tests
       run: php artisan test
 
-    - name: Install NPM dependencies
-      run: npm install && npm run build
-
-
     - name: Deploy to AWS EC2 via SSH
       uses: appleboy/ssh-action@v1.0.3
       with:
