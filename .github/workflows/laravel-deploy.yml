@@ -1,0 +1,46 @@
+name: Laravel AWS EC2 Deploy
+
+on:
+  push:
+    branches:
+      - main   # Runs when you push to 'main' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3'
+
+    - name: Install Composer dependencies
+      run: composer install --no-dev --optimize-autoloader
+
+    - name: Run Laravel Tests
+      run: php artisan test
+
+    - name: Install NPM dependencies
+      run: npm install && npm run build
+
+
+    - name: Deploy to AWS EC2 via SSH
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.AWS_HOST }}
+        username: ${{ secrets.AWS_USER }}
+        key: ${{ secrets.AWS_SSH_KEY }}
+        script: |
+          cd /home/ubuntu/code
+          git pull origin main
+          composer install --no-dev --optimize-autoloader
+          php artisan migrate --force
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+          sudo systemctl restart php8.3-fpm
+          sudo systemctl reload nginx
